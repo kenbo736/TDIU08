@@ -3,10 +3,10 @@
 #include <iostream>
 #include <vector>
 
-struct art
+/*struct art
 {
     std::vector<std::string> kind = {"Human", "Elf", "Orc", "Halfling", "Ogre", "Lizardman"};
-};
+};*/
 
 /*struct eyeColor
 {
@@ -20,7 +20,7 @@ struct hero
     char gender{};
     int weight{};
     std::string hairColor{};
-    std::vector<int> hobby{};
+    //std::vector<int> hobby{};
 };
 
 void readInHero(hero& person, std::vector<hero>& lista);
