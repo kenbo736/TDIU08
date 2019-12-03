@@ -12,6 +12,10 @@
 {
     std::vector<string> eyes = {"Blue", "Green", "Brown", "Gray", "Yellow", "Red", "Black", "Crazy"};
 };*/
+enum art
+{
+    Human, Elf, Orc, Halfling, Ogre, Lizardman
+};
 
 struct hero
 {
@@ -20,6 +24,7 @@ struct hero
     char gender{};
     int weight{};
     std::string hairColor{};
+    art a = Human;
   //std::vector<int> hobby{};
 };
 

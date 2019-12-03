@@ -2,6 +2,20 @@
 #include <vector>
 #include "hero.h"
 
+std::istream& operator>>(std::istream& kin, hero& kind);
+{
+  string val;
+  kin >> val;
+  switch(val)
+  {
+    case("Human"){
+      kind.a = Human;
+      break;
+    }
+  }
+  return kin;
+}
+
 void readInHero(hero& person, std::vector<hero>& lista)
 {
   std::cout << "Name(string): ";
@@ -15,6 +29,8 @@ void readInHero(hero& person, std::vector<hero>& lista)
       std::cin >> person.weight;
       std::cout << "Hair Color(string): ";
       std::cin >> person.hairColor;
+      std::cout << "Race(art): ";
+      std::istream& operator>>(std::istream& kin, hero& kind);
       lista.push_back(person);
     }
     //std::cout << person.kind << std::endl;
@@ -32,3 +48,15 @@ void readInHero(hero& person, std::vector<hero>& lista)
     std::cout << person.weight << std::endl;
     std::cout << person.hairColor << std::endl;
 }*/
+
+/*
+    switch(person.a)
+    {
+        case Human    : std::cout << "Human\n";    break;
+        case Elf      : std::cout << "Elf\n";      break;
+        case Orc      : std::cout << "Orc\n";      break;
+        case Halfling : std::cout << "Halfling\n"; break;
+        case Ogre     : std::cout << "Ogre\n";     break;
+        case Lizardman: std::cout << "Lizardman\n";break;
+    }
+*/

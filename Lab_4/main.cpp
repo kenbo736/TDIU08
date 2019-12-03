@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
+#include <iomanip>
+#include <cctype>
 
 using namespace std;
 
