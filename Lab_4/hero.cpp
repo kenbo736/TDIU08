@@ -4,13 +4,18 @@
 
 void readInHero(hero& person, std::vector<hero>& lista)
 {
+  std::cout << "Name(string): ";
     while(std::cin >> person.name)
     {
-        std::cin >> person.age;
-        std::cin >> person.gender;
-        std::cin >> person.weight;
-        std::cin >> person.hairColor;
-        lista.push_back(person);
+      std::cout << "Age(int): ";
+      std::cin >> person.age;
+      std::cout << "Gender(char): ";
+      std::cin >> person.gender;
+      std::cout << "Weight(int): ";
+      std::cin >> person.weight;
+      std::cout << "Hair Color(string): ";
+      std::cin >> person.hairColor;
+      lista.push_back(person);
     }
     //std::cout << person.kind << std::endl;
 }

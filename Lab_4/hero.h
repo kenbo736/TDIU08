@@ -20,7 +20,7 @@ struct hero
     char gender{};
     int weight{};
     std::string hairColor{};
-    //std::vector<int> hobby{};
+  //std::vector<int> hobby{};
 };
 
 void readInHero(hero& person, std::vector<hero>& lista);
