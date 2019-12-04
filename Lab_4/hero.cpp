@@ -1,25 +1,91 @@
 #include <iostream>
 #include <vector>
 #include "hero.h"
+#include <sstream>
 
-std::istream& operator>>(std::istream& kin, hero& kind);
+
+std::istream& operator>>(std::istream& kin, art& ras)
 {
-  string val;
+  std::string val;
   kin >> val;
-  switch(val)
-  {
-    case("Human"){
-      kind.a = Human;
-      break;
+
+  if(val == "Human")
+    {
+      ras = Human;
     }
-  }
+  
+  else if (val == "Elf")
+    {
+      ras = Elf;
+    }
+  
+  else if (val == "Orc")
+    {
+      ras = Orc;
+    }
+  
+  else if (val == "Halfling")
+    {
+      ras = Halfling;
+    }
+  
+  else if (val == "Ogre")
+    {
+      ras = Ogre;
+    }
+  else if (val == "Lizardman")
+    {
+      ras = Lizardman;
+    }
+
   return kin;
 }
 
+std::istream& operator>>(std::istream& kin, eyeColor& color)
+{
+std::string val;
+kin >> val;
+ 
+  if(val == "Blue")
+    {
+      color = Blue;
+    }
+  
+  else if (val == "Green")
+    {
+      color = Green;
+    }
+  
+  else if (val == "Brown")
+    {
+      color = Brown;
+    }
+  
+  else if (val == "Gray")
+    {
+      color = Yellow;
+    }
+  
+  else if (val == "Red")
+    {
+      color = Black;
+    }
+  else if (val == "Crazy")
+    {
+      color = Crazy;
+    }
+
+  return kin;
+}
+
+
+  
 void readInHero(hero& person, std::vector<hero>& lista)
 {
+  int intrest{};
+  std::string buff{};
   std::cout << "Name(string): ";
-    while(std::cin >> person.name)
+  while(std::cin >> person.name)
     {
       std::cout << "Age(int): ";
       std::cin >> person.age;
@@ -30,33 +96,31 @@ void readInHero(hero& person, std::vector<hero>& lista)
       std::cout << "Hair Color(string): ";
       std::cin >> person.hairColor;
       std::cout << "Race(art): ";
-      std::istream& operator>>(std::istream& kin, hero& kind);
+      std::cin >> person.race;
+      std::cout << "Eye Color(eyeColor): ";
+      std::cin >> person.color;
+      std::cout << "Intressen(vector): ";
+      std::stringstream ss;
+      getline(std::cin, buff);
+      ss << buff;
+      while(ss >> intrest)
+      {
+	person.hobby.push_back(intrest);
+      }
       lista.push_back(person);
     }
-    //std::cout << person.kind << std::endl;
+  //std::cout << person.kind << std::endl;
 }
 
-/*void printHero(hero& person, std::vector<hero>& lista)
-{
-    for(i=0; i < lista.length)
-    {
-        lista
-    }
-    std::cout << person.name << std::endl;
-    std::cout << person.age << std::endl;
-    std::cout << person.gender << std::endl;
-    std::cout << person.weight << std::endl;
-    std::cout << person.hairColor << std::endl;
-}*/
 
 /*
-    switch(person.a)
-    {
-        case Human    : std::cout << "Human\n";    break;
-        case Elf      : std::cout << "Elf\n";      break;
-        case Orc      : std::cout << "Orc\n";      break;
-        case Halfling : std::cout << "Halfling\n"; break;
-        case Ogre     : std::cout << "Ogre\n";     break;
-        case Lizardman: std::cout << "Lizardman\n";break;
-    }
+  switch(person.a)
+  {
+  case Human    : std::cout << "Human\n";    break;
+  case Elf      : std::cout << "Elf\n";      break;
+  case Orc      : std::cout << "Orc\n";      break;
+  case Halfling : std::cout << "Halfling\n"; break;
+  case Ogre     : std::cout << "Ogre\n";     break;
+  case Lizardman: std::cout << "Lizardman\n";break;
+  }
 */

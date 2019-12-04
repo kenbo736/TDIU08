@@ -21,19 +21,24 @@ int main()
   cout << "Välj ett alternativ: ";
   cin >> options;
   if (options == 'A')
-  {
-    readInHero(adventurer, rego); 
-    for(int i=0; i < rego.size(); i++)
     {
-      cout << rego[i].name << endl;
-    }
+      readInHero(adventurer, rego); 
+      for(int i=0; i < rego.size(); i++)
+	{
+	  cout << rego[i].name;
+	  cout << rego[i].age << endl;
+	  for(int x=0; x < rego[i].hobby.size(); x++)
+	  {
+	    cout << rego[i].hobby[x] << endl;
+	  }
+	}
     
-  }
+    }
   else if (options == 'B')
-  {
-    cout << "Mata in dina intressen: ";
-    //cin >> hobby;
-  }
+    {
+      cout << "Mata in dina intressen: ";
+      //getline(cin, hobby);
+    }
       
  
   return 0;
