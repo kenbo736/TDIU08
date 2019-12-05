@@ -5,12 +5,7 @@
 #include <fstream>
 #include "hero.h"
 
-struct registeredHero
-{
-    std::vector<int> v{};
-};
-
-void readInFile();
+void readInFile(std::string& text);
 void readToFile(std::vector<hero>& rego);
 
 #endif

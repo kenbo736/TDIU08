@@ -4,9 +4,8 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include "hero.h"
 
-void readInFile()
+void readInFile(std::string & text)
 {
     std::ifstream inFile{"REGISTER.TXT"};
     if(!inFile)
@@ -19,8 +18,9 @@ void readInFile()
     while(!inFile.eof())
     {
         std::getline(inFile, line);
-        std::cout << line << std::endl;
-
+        //std::cout << line << std::endl;
+        line += "\n";
+        text.append(line);
         count++;
     }
     std::cout << count << " rows" << std::endl;
@@ -35,6 +35,13 @@ void readToFile(std::vector<hero>& rego)
         std::cerr << "Error" << std::endl;
         exit(1);
     }
-    ofs << rego[0].name << "     " << rego[0].age << "     " << rego[0].gender << "    " << rego[0].weight << "     " << rego[0].hairColor << "     " << rego[0].race << "  " << rego[0].color << "     ";
+    for(int i=0; i<rego.size(); i++) //läser in hero register i en fil som ligger i en vektor
+    {
+        ofs << rego[i].name << "     " << rego[i].age << "     " << rego[i].gender << "    " << rego[i].weight << "     " << rego[i].hairColor << "     " << rego[i].race << "  " << rego[i].color << "     ";
+        for(int j=0; j<rego[i].hobby.size(); j++)
+        {
+            ofs << rego[i].hobby[j] << " ";
+        }
+    }
     ofs.close();
 }

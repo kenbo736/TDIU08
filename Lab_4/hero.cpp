@@ -1,8 +1,9 @@
 #include <iostream>
 #include <vector>
 #include "hero.h"
-#include "reg.h"
 #include <sstream>
+
+
 
 
 std::istream& operator>>(std::istream& kin, art& ras)
@@ -44,8 +45,8 @@ std::istream& operator>>(std::istream& kin, art& ras)
 
 std::istream& operator>>(std::istream& kin, eyeColor& color)
 {
-std::string val;
-kin >> val;
+  std::string val;
+  kin >> val;
  
   if(val == "Blue")
     {
@@ -79,10 +80,39 @@ kin >> val;
   return kin;
 }
 
+std::ostream& operator<<(std::ostream& kout, art& ras)
+{
+  
+  switch(ras)
+  {
+    case Human    : kout << "Human";    break;
+    case Elf      : kout << "Elf";      break;
+    case Orc      : kout << "Orc";      break;
+    case Halfling : kout << "Halfling"; break;
+    case Ogre     : kout << "Ogre";     break;
+    case Lizardman: kout << "Lizardman";break;
+  }
+  return kout;
+}
+
+std::ostream& operator<<(std::ostream& kout, eyeColor& color)
+{
+
+  switch(color)
+  {
+    case Blue   : kout << "Blue";   break;
+    case Green  : kout << "Green";  break;
+    case Brown  : kout << "Brown";  break;
+    case Gray   : kout << "Gray";   break;
+    case Yellow : kout << "Yellow"; break;
+    case Black  : kout << "Black";  break;
+    case Crazy  : kout << "Crazy";  break;
+  }
+  return kout;
+}
+
 void readInHero(hero& person, std::vector<hero>& lista)
 {
-  int intrest{};
-  std::string buff{};
   std::cout << "Name(string): ";
   while(std::cin >> person.name)
     {
@@ -99,6 +129,9 @@ void readInHero(hero& person, std::vector<hero>& lista)
       std::cout << "Eye Color(eyeColor): ";
       std::cin >> person.color;
       std::cout << "Intressen(vector): ";
+      std::cout << person.race;
+      int intrest{};
+      std::string buff{};
       std::stringstream ss;
       getline(std::cin, buff);
       ss << buff;

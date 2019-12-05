@@ -1,6 +1,4 @@
 #include <iostream>
-#include "hero.h"
-#include "reg.h"
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -8,6 +6,8 @@
 #include <iomanip>
 #include <cctype>
 #include <fstream>
+#include "hero.h"
+#include "reg.h"
 
 using namespace std;
 
@@ -16,6 +16,7 @@ int main()
   hero adventurer{};
   vector<hero> rego = {};
   char options{};
+  string wholeRegister{};
 
   cout << "Välkommen till Hero Match­Maker 3000!" << endl;
   cout << "Välj ett alternativ:" << endl;
@@ -35,7 +36,8 @@ int main()
   }
   else if(options == 'C')
   {
-    readInFile();
+    readInFile(wholeRegister);
+    cout << wholeRegister << endl;
   }
   else if(options == 'D')
   {
