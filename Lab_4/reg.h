@@ -2,10 +2,15 @@
 #define REG_H
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include "hero.h"
 
-struct Reg
+struct registeredHero
 {
-    vector<hero> regi;
+    std::vector<int> v{};
 };
+
+void readInFile();
+void readToFile(std::vector<hero>& rego);
 
 #endif
