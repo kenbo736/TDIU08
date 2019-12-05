@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "hero.h"
+#include "reg.h"
 #include <sstream>
 
 
@@ -78,8 +79,6 @@ kin >> val;
   return kin;
 }
 
-
-  
 void readInHero(hero& person, std::vector<hero>& lista)
 {
   int intrest{};
@@ -105,11 +104,10 @@ void readInHero(hero& person, std::vector<hero>& lista)
       ss << buff;
       while(ss >> intrest)
       {
-	person.hobby.push_back(intrest);
+	      person.hobby.push_back(intrest);
       }
       lista.push_back(person);
     }
-  //std::cout << person.kind << std::endl;
 }
 
 
