@@ -139,5 +139,6 @@ void readInHero(hero& person, std::vector<hero>& lista)
           person.hobby.push_back(intrest);
         }
       }
+      
       lista.push_back(person);
 }

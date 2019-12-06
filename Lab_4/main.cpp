@@ -22,7 +22,6 @@ int main()
   cout << "Välkommen till Hero Match­Maker 9999!" << endl;
   cout << "Välj ett alternativ:" << endl;
   cout << "A) Mata in en ny hjälte\nB) Hitta matchande hjältar" << endl;
-  cout << "C) register\nD) fyll på fil" << endl;
   cout << "Välj ett alternativ: ";
   cin >> options;
   if(options == 'A')
@@ -34,21 +33,8 @@ int main()
   else if(options == 'B')
   {
     cout << "Mata in dina intressen: ";
+    
       //getline(cin, hobby);
-  }
-  else if(options == 'C')
-  {
-    readInFile(rego);
-    for(int i=0; i < rego.size(); i++)
-    {
-      cout << rego[i].name << endl;
-    }
-    writeToFile(rego);
-    //cout << wholeRegister << endl;
-  }
-  else if(options == 'D')
-  {
-    writeToFile(rego);
   }
   return 0;
 }
