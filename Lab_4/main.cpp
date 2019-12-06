@@ -18,7 +18,8 @@ int main()
   char options{};
   string wholeRegister{};
 
-  cout << "Välkommen till Hero Match­Maker 3000!" << endl;
+
+  cout << "Välkommen till Hero Match­Maker 9999!" << endl;
   cout << "Välj ett alternativ:" << endl;
   cout << "A) Mata in en ny hjälte\nB) Hitta matchande hjältar" << endl;
   cout << "C) register\nD) fyll på fil" << endl;
@@ -26,8 +27,9 @@ int main()
   cin >> options;
   if(options == 'A')
   {
+    readInFile(rego); // laddar in hela registret från .txt till vektorn
     readInHero(adventurer, rego);
-    readToFile(rego);
+    writeToFile(rego);
   }
   else if(options == 'B')
   {
@@ -36,12 +38,17 @@ int main()
   }
   else if(options == 'C')
   {
-    readInFile(wholeRegister);
-    cout << wholeRegister << endl;
+    readInFile(rego);
+    for(int i=0; i < rego.size(); i++)
+    {
+      cout << rego[i].name << endl;
+    }
+    writeToFile(rego);
+    //cout << wholeRegister << endl;
   }
   else if(options == 'D')
   {
-    readToFile(rego);
+    writeToFile(rego);
   }
   return 0;
 }
