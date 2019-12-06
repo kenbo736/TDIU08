@@ -5,7 +5,7 @@
 #include <fstream>
 #include "hero.h"
 
-void readInFile(std::string& text);
-void readToFile(std::vector<hero>& rego);
+void readInFile(std::vector<hero>& lista);
+void writeToFile(std::vector<hero>& rego);
 
 #endif
