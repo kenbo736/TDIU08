@@ -114,8 +114,7 @@ std::ostream& operator<<(std::ostream& kout, eyeColor& color)
 void readInHero(hero& person, std::vector<hero>& lista)
 {
   std::cout << "Name(string): ";
-  while(std::cin >> person.name)
-    {
+  std::cin >> person.name;
       std::cout << "Age(int): ";
       std::cin >> person.age;
       std::cout << "Gender(char): ";
@@ -129,29 +128,16 @@ void readInHero(hero& person, std::vector<hero>& lista)
       std::cout << "Eye Color(eyeColor): ";
       std::cin >> person.color;
       std::cout << "Intressen(vector): ";
-      std::cout << person.race;
       int intrest{};
       std::string buff{};
-      std::stringstream ss;
-      getline(std::cin, buff);
-      ss << buff;
-      while(ss >> intrest)
+      while(std::cin >> buff)
       {
-	      person.hobby.push_back(intrest);
+        std::stringstream ss;
+        ss << buff;
+        while(ss >> intrest)
+        {
+          person.hobby.push_back(intrest);
+        }
       }
       lista.push_back(person);
-    }
 }
-
-
-/*
-  switch(person.a)
-  {
-  case Human    : std::cout << "Human\n";    break;
-  case Elf      : std::cout << "Elf\n";      break;
-  case Orc      : std::cout << "Orc\n";      break;
-  case Halfling : std::cout << "Halfling\n"; break;
-  case Ogre     : std::cout << "Ogre\n";     break;
-  case Lizardman: std::cout << "Lizardman\n";break;
-  }
-*/
