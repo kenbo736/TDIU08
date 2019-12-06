@@ -57,7 +57,11 @@ void writeToFile(std::vector<hero>& rego)
         {
             ofs << rego[i].hobby[j] << " ";
         }
-        ofs << "\n";
+        if(!(i == rego.size()-1))
+        {
+            ofs << "\n";
+        }
+
     }
     ofs.close();
 }
