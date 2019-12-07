@@ -6,6 +6,6 @@
 #include "hero.h"
 
 void readInFile(std::vector<hero>& lista);
-void writeToFile(std::vector<hero>& rego);
+void writeToFile(std::vector<hero>& rego, std::string filename);
 
 #endif

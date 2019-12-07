@@ -38,13 +38,13 @@ void readInFile(std::vector<hero>& lista) //läser in hela filen i en sträng
         
         count++;
     }
-    std::cout << count << " rows" << std::endl;
+    //std::cout << count << " rows" << std::endl;
     //inFile.close();
 }
 
-void writeToFile(std::vector<hero>& rego)
+void writeToFile(std::vector<hero>& rego, std::string filename)
 {
-    std::ofstream ofs{"test.txt"};
+    std::ofstream ofs{filename};
     if(!ofs)
     {
         std::cerr << "Error" << std::endl;

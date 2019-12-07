@@ -20,6 +20,7 @@ struct hero
 };
 
 void readInHero(hero& person, std::vector<hero>& lista);
+void mitchMatch(std::vector<int>& v, std::vector<hero>& rego, std::vector<hero>& match);
 std::istream& operator>>(std::istream& kin, art& ras);
 std::istream& operator>>(std::istream& kin, eyeColor& color);
 std::ostream& operator<<(std::ostream& kout, art& ras);
