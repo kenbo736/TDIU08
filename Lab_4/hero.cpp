@@ -147,21 +147,7 @@ void mitchMatch(std::vector<int>& v, std::vector<hero>& rego, std::vector<hero>&
 {
   int count{};
   int countSame{};
-  /*for(int i=0; i<v.size(); i++)
-  {
-    for(int j=0; j<rego.size(); j++)
-    {
-      //count = 0;
-      for(int x=0; x<rego[j].hobby.size(); x++)
-      {
-        if(v[i] == rego[j].hobby[x])
-        {
-          count++;
-          std::cout << "Match! " << count << std::endl;
-        } 
-      }
-    }
-  }*/
+
   for(int j=0; j<rego.size(); j++)
   {
     count = 0;

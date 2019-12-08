@@ -62,15 +62,3 @@ int main()
   }
   return 0;
 }
-
-/*
-  for(int i=0; i < rego.size(); i++)
-	{
-	  cout << rego[i].name;
-	  cout << rego[i].age << endl;
-	  for(int x=0; x < rego[i].hobby.size(); x++)
-	  {
-	    cout << rego[i].hobby[x] << endl;
-	  }
-  }
-    */

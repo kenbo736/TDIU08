@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 #include "reg.h"
-//#include "hero.h"
 #include <fstream>
 #include <string>
 #include <sstream>
@@ -16,16 +15,11 @@ void readInFile(std::vector<hero>& lista) //läser in hela filen i en sträng
     }
     std::string line{};
     int count{};
-    //std::vector<std::string> heroinfo{};
     while(!inFile.eof())
     {
         std::getline(inFile, line);
         std::stringstream ss;
         ss << line;
-        //std::cout << line << std::endl;
-        //line += "\n";
-        //hero k{}line.split("\");
-        //text.append(line);
         
         hero person{};
         int intrest{};
@@ -38,8 +32,6 @@ void readInFile(std::vector<hero>& lista) //läser in hela filen i en sträng
         
         count++;
     }
-    //std::cout << count << " rows" << std::endl;
-    //inFile.close();
 }
 
 void writeToFile(std::vector<hero>& rego, std::string filename)
