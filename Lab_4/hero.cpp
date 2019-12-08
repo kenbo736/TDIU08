@@ -3,9 +3,6 @@
 #include "hero.h"
 #include <sstream>
 
-
-
-
 std::istream& operator>>(std::istream& kin, art& ras)
 {
   std::string val;
@@ -111,6 +108,11 @@ std::ostream& operator<<(std::ostream& kout, eyeColor& color)
   return kout;
 }
 
+bool sortByAge(const hero& hero1, const hero& hero2)
+{
+   return hero1.age < hero2.age;
+}
+
 void readInHero(hero& person, std::vector<hero>& lista)
 {
   std::cout << "Name(string): ";
@@ -164,7 +166,7 @@ void mitchMatch(std::vector<int>& v, std::vector<hero>& rego, std::vector<hero>&
     if(count > 0)
     {
       match.push_back(rego[j]);
-      std::cout << "Match! " << count << std::endl;
+      //std::cout << "Match! " << count << std::endl;
     }
   }
 }

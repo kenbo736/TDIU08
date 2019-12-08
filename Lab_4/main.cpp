@@ -32,28 +32,35 @@ int main()
   {
     readInFile(rego); // laddar in hela registret från .txt till vektorn
     readInHero(adventurer, rego);
-    writeToFile(rego, r);
+    sort(rego.begin(), rego.end(), sortByAge);
+    writeToFile(rego, r); // skriver till fil
+    
   }
   else if(options == 'B')
   {
-    cout << "Mata in dina intressen: ";
+    cout << "Mata in dina intressen(1-15): ";
     int intrest{};
     std::string buff{};
+    int i=0;
     while(std::cin >> buff)
     {
       if((buff.back() == '0') || v.size()>=10)
       {
-        cout << "hello";
+        cout << "Du får inte välja mer än 10 intressen" << endl;
         break;
       }
       std::stringstream ss;
       ss << buff;
       while(ss >> intrest)
       {
+        if(intrest > 15) // Kollar om intresset du valt är större än 15
+        {
+          cout << "Intresset får inte vara högre än 15! " << endl;
+          break;
+        }
         v.push_back(intrest);
       }
     }
-    cout << v[0] << v[1] << endl;
     readInFile(rego);
     mitchMatch(v, rego, match);
     writeToFile(match, res);
