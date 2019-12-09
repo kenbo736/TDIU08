@@ -18,7 +18,6 @@ int main()
   vector<hero> rego = {};
   vector<hero> match ={};
   char options{};
-  string wholeRegister{};
   vector<int> v = {};
   string r = "test.txt";
   string res = "RESULT.TXT";
@@ -30,11 +29,11 @@ int main()
   cin >> options;
   if(options == 'A')
   {
-    readInFile(rego); // laddar in hela registret från .txt till vektorn
+    readInFile(rego);
     readInHero(adventurer, rego);
     sort(rego.begin(), rego.end(), sortByAge);
-    writeToFile(rego, r); // skriver till fil
-    
+    writeToFile(rego, r);
+
   }
   else if(options == 'B')
   {
@@ -44,9 +43,8 @@ int main()
     int i=0;
     while(std::cin >> buff)
     {
-      if((buff.back() == '0') || v.size()>=10)
+      if(buff.back() == '0')
       {
-        cout << "Du får inte välja mer än 10 intressen" << endl;
         break;
       }
       std::stringstream ss;
@@ -58,13 +56,18 @@ int main()
           cout << "Intresset får inte vara högre än 15! " << endl;
           break;
         }
+        else if(v.size()>9)
+        {
+          cout << "Du får inte ha fler än 10 intressen" << endl;
+          break;
+        }
         v.push_back(intrest);
       }
     }
     readInFile(rego);
     mitchMatch(v, rego, match);
     writeToFile(match, res);
-    
+
 
   }
   return 0;

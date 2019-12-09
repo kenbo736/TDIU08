@@ -5,7 +5,7 @@
 #include <string>
 #include <sstream>
 
-void readInFile(std::vector<hero>& lista) //läser in hela filen i en sträng
+void readInFile(std::vector<hero>& lista) //läser in registret, därefter tar den rad för rad som den hanterar med hjälp av stringstream och stoppar in den i en vector som innehåller alla hjältar
 {
     std::ifstream inFile{"test.txt"};
     if(!inFile)
@@ -14,13 +14,12 @@ void readInFile(std::vector<hero>& lista) //läser in hela filen i en sträng
         exit(1);
     }
     std::string line{};
-    int count{};
-    while(!inFile.eof())
+    while(!inFile.eof()) //medan filen inte är "end of file"
     {
         std::getline(inFile, line);
         std::stringstream ss;
         ss << line;
-        
+
         hero person{};
         int intrest{};
         ss >> person.name >> person.age >> person.gender >> person.weight >> person.hairColor >> person.race >> person.color;
@@ -29,12 +28,10 @@ void readInFile(std::vector<hero>& lista) //läser in hela filen i en sträng
             person.hobby.push_back(intrest);
         }
         lista.push_back(person);
-        
-        count++;
     }
 }
 
-void writeToFile(std::vector<hero>& rego, std::string filename)
+void writeToFile(std::vector<hero>& rego, std::string filename) //skriver till en fil med hjälp av vektorn som innehåller alla hjältar
 {
     std::ofstream ofs{filename};
     if(!ofs)

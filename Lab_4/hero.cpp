@@ -12,22 +12,22 @@ std::istream& operator>>(std::istream& kin, art& ras)
     {
       ras = Human;
     }
-  
+
   else if (val == "Elf")
     {
       ras = Elf;
     }
-  
+
   else if (val == "Orc")
     {
       ras = Orc;
     }
-  
+
   else if (val == "Halfling")
     {
       ras = Halfling;
     }
-  
+
   else if (val == "Ogre")
     {
       ras = Ogre;
@@ -44,27 +44,27 @@ std::istream& operator>>(std::istream& kin, eyeColor& color)
 {
   std::string val;
   kin >> val;
- 
+
   if(val == "Blue")
     {
       color = Blue;
     }
-  
+
   else if (val == "Green")
     {
       color = Green;
     }
-  
+
   else if (val == "Brown")
     {
       color = Brown;
     }
-  
+
   else if (val == "Gray")
     {
       color = Yellow;
     }
-  
+
   else if (val == "Red")
     {
       color = Black;
@@ -79,7 +79,7 @@ std::istream& operator>>(std::istream& kin, eyeColor& color)
 
 std::ostream& operator<<(std::ostream& kout, art& ras)
 {
-  
+
   switch(ras)
   {
     case Human    : kout << "Human";    break;
@@ -108,44 +108,43 @@ std::ostream& operator<<(std::ostream& kout, eyeColor& color)
   return kout;
 }
 
-bool sortByAge(const hero& hero1, const hero& hero2)
+bool sortByAge(const hero& hero1, const hero& hero2) // jämför informationen och returnerar värdet
 {
    return hero1.age < hero2.age;
 }
 
-void readInHero(hero& person, std::vector<hero>& lista)
+void readInHero(hero& person, std::vector<hero>& lista) // skapar en hjälpte och stoppar in den i hjälte listan.
 {
   std::cout << "Name(string): ";
   std::cin >> person.name;
-      std::cout << "Age(int): ";
-      std::cin >> person.age;
-      std::cout << "Gender(char): ";
-      std::cin >> person.gender;
-      std::cout << "Weight(int): ";
-      std::cin >> person.weight;
-      std::cout << "Hair Color(string): ";
-      std::cin >> person.hairColor;
-      std::cout << "Race(art): ";
-      std::cin >> person.race;
-      std::cout << "Eye Color(eyeColor): ";
-      std::cin >> person.color;
-      std::cout << "Intressen(vector): ";
-      int intrest{};
-      std::string buff{};
-      while(std::cin >> buff)
-      {
-        std::stringstream ss;
-        ss << buff;
-        while(ss >> intrest)
-        {
-          person.hobby.push_back(intrest);
-        }
-      }
-      
-      lista.push_back(person);
+  std::cout << "Age(int): ";
+  std::cin >> person.age;
+  std::cout << "Gender(char): ";
+  std::cin >> person.gender;
+  std::cout << "Weight(int): ";
+  std::cin >> person.weight;
+  std::cout << "Hair Color(string): ";
+  std::cin >> person.hairColor;
+  std::cout << "Race(art): ";
+  std::cin >> person.race;
+  std::cout << "Eye Color(eyeColor): ";
+  std::cin >> person.color;
+  std::cout << "Intressen(vector): ";
+  int intrest{};
+  std::string buff{};
+  while(std::cin >> buff)
+  {
+    std::stringstream ss;
+    ss << buff; // stoppar in vår sträng i stringstream
+    while(ss >> intrest) // medan ss skickar ut vår sträng till int values
+    {
+      person.hobby.push_back(intrest); //lägger till intressen i strukt hero: hobby
+    }
+  }
+  lista.push_back(person);
 }
 
-void mitchMatch(std::vector<int>& v, std::vector<hero>& rego, std::vector<hero>& match)
+void mitchMatch(std::vector<int>& v, std::vector<hero>& rego, std::vector<hero>& match) // matchar dina intressen med alla hjältarnas intressen
 {
   int count{};
   int countSame{};
@@ -157,7 +156,7 @@ void mitchMatch(std::vector<int>& v, std::vector<hero>& rego, std::vector<hero>&
     {
       for(int i=0; i<v.size(); i++)
       {
-        if(v[i] == rego[j].hobby[x])
+        if(v[i] == rego[j].hobby[x]) // jämför hjältarnas vektorlista med vår intressen(vektor)
         {
           count++;
         }

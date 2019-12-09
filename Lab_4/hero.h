@@ -19,7 +19,7 @@ struct hero
   std::vector<int> hobby{};
 };
 
-bool sortByAge(const hero& hero1, const hero& hero2); // jämför informationen och returnerar värdet
+bool sortByAge(const hero& hero1, const hero& hero2); 
 void readInHero(hero& person, std::vector<hero>& lista);
 void mitchMatch(std::vector<int>& v, std::vector<hero>& rego, std::vector<hero>& match);
 std::istream& operator>>(std::istream& kin, art& ras);
